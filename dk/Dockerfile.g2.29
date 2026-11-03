@@ -1,0 +1,16 @@
+FROM ubuntu:19.04
+
+# 구형 우분투 저장소 주소를 old-releases로 변경
+RUN sed -i 's/archive.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list && \
+    sed -i 's/security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gdb \
+    git \
+    python3 \
+    vim \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace
+COPY . /workspace
