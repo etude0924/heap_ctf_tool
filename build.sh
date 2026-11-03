@@ -29,6 +29,8 @@ if [ -d "sample" ]; then
     cd ..
 fi
 
+sudo ln -sf $(pwd)/waw /usr/local/bin/waw
+
 echo ""
 echo "[build] 완료. 사용 예시:"
 echo "  ./waw g2.26 -e ./sample/chain_target --show-bins"
